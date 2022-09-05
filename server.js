@@ -13,9 +13,11 @@ app.get("/", (req, res) => {
 app.post("/person", (req, res) => {
   const { person } = req.body;
 
-  res
-    .status(200)
-    .json({ name: person.name, age: person.age + 5, gender: person.gender });
+  res.status(200).json({
+    name: person.name,
+    age: Number(person.age) + 5,
+    gender: person.gender,
+  });
 });
 
 const start = (port) => {
